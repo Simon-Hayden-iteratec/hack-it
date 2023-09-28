@@ -4,6 +4,8 @@
 }
 
 html {
+  --border-radius: 10px;
+
   @media (prefers-color-scheme: dark) {
     --text: #faf5f9;
     --background: #000000;
@@ -22,4 +24,5 @@ body {
 .container {
   max-width: 1440px;
   margin-inline: auto;
+  padding: 16px;
 }
