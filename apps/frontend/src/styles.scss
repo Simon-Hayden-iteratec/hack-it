@@ -10,19 +10,23 @@ html {
 
   // Theme-based variables
   --text: #000000;
+  --text-inverse: #ffffff;
   --background: #ffffff;
   --primary: #e7c5e0;
   --secondary: #f6f6ef;
+  --on-secondary: var(--text);
   --accent: #9d1681;
-  --on-accent: #ffffff;
+  --on-accent: var(--text-inverse);
 
   @media (prefers-color-scheme: dark) {
     --text: #ffffff;
+    --text-inverse: #000000;
     --background: #000000;
     --primary: #fef8cb;
-    --secondary: #211e06;
+    --secondary: #101009;
+    --on-secondary: var(--text);
     --accent: #ffe500;
-    --on-accent: #000000;
+    --on-accent: var(--text-inverse);
   }
 }
 
@@ -30,6 +34,11 @@ body {
   background-color: var(--background);
   color: var(--text);
   line-height: 1.414;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
 }
 
 .container {

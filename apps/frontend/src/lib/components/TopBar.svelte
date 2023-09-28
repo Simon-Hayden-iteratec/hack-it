@@ -1,13 +1,10 @@
 <script lang="ts">
-	import Button from '$lib/components/Button.svelte';
-
 	export let title: string = 'Title';
-	export let action: string = 'Create';
 </script>
 
 <div class="top-bar">
-	<div class="top-bar__button">
-		<Button type="primary">{action}</Button>
+	<div class="top-bar__actions">
+		<slot />
 	</div>
 	<h1>{title}</h1>
 </div>
@@ -19,8 +16,9 @@
 		height: 160px;
 		justify-content: space-between;
 
-		&__button {
-			align-self: flex-end;
+		&__actions {
+			display: flex;
+			justify-content: flex-end;
 		}
 	}
 </style>

@@ -1,22 +1,23 @@
 <script>
+	import Button from '$lib/components/Button.svelte';
 	import EventCard from '$lib/components/EventCard.svelte';
 	import TopBar from '$lib/components/TopBar.svelte';
 </script>
 
 <div class="page">
-	<TopBar title="Events" action="Create Event" />
+	<TopBar title="Events">
+		<Button href="event/create" type="primary">Create Event</Button>
+	</TopBar>
 	<div class="events">
-		<EventCard />
-		<EventCard />
-		<EventCard />
-		<EventCard />
-		<EventCard />
-		<EventCard />
-		<EventCard />
-		<EventCard />
-		<EventCard />
-		<EventCard />
-		<EventCard />
+		<a href="event/1">
+			<EventCard id="id" />
+		</a>
+		<a href="event/2">
+			<EventCard id="id" />
+		</a>
+		<a href="event/3">
+			<EventCard id="id" />
+		</a>
 	</div>
 </div>
 
