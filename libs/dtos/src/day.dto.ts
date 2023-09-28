@@ -10,7 +10,7 @@ export class DayDto {
 }
 
 export function toDate(day: DayDto): Date {
-  return new Date(Date.UTC(day.year, day.month, day.year));
+  return new Date(Date.UTC(day.year, day.month, day.day));
 }
 
 export function toDay(date: Date): DayDto {
