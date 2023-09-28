@@ -4,8 +4,15 @@
 </script>
 
 <div class="page">
-	<TopBar />
+	<TopBar title="Events" />
 	<div class="events">
+		<EventCard />
+		<EventCard />
+		<EventCard />
+		<EventCard />
+		<EventCard />
+		<EventCard />
+		<EventCard />
 		<EventCard />
 		<EventCard />
 		<EventCard />
