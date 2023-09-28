@@ -1,1 +1,3 @@
-export * from './lib/dtos';
+export * from './user.dto';
+export * from './event.dto';
+export * from './day.dto';
