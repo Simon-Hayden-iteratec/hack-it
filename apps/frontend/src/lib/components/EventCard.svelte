@@ -13,14 +13,14 @@
 
 <style lang="scss">
 	.anchor {
-		border-radius: var(--border-radius);
+		border-radius: var(--border-radius-medium);
 		color: var(--text);
 		text-decoration: none;
 	}
 
 	.event {
 		background-color: var(--secondary);
-		border-radius: var(--border-radius);
+		border-radius: var(--border-radius-medium);
 		display: flex;
 		flex-direction: column;
 		gap: 8px;

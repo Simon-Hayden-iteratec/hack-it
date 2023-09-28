@@ -4,7 +4,7 @@
 </script>
 
 <div class="page">
-	<TopBar title="Events" />
+	<TopBar title="Events" action="Create Event" />
 	<div class="events">
 		<EventCard />
 		<EventCard />

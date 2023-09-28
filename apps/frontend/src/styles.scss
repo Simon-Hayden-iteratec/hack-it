@@ -5,14 +5,24 @@
 }
 
 html {
-  --border-radius: 10px;
+  --border-radius-small: 6px;
+  --border-radius-medium: 10px;
+
+  // Theme-based variables
+  --text: #000000;
+  --background: #ffffff;
+  --primary: #e7c5e0;
+  --secondary: #f6f6ef;
+  --accent: #9d1681;
+  --on-accent: #ffffff;
 
   @media (prefers-color-scheme: dark) {
-    --text: #faf5f9;
+    --text: #ffffff;
     --background: #000000;
     --primary: #fef8cb;
     --secondary: #211e06;
     --accent: #ffe500;
+    --on-accent: #000000;
   }
 }
 

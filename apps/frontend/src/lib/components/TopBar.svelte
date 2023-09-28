@@ -2,11 +2,12 @@
 	import Button from '$lib/components/Button.svelte';
 
 	export let title: string = 'Title';
+	export let action: string = 'Create';
 </script>
 
 <div class="top-bar">
 	<div class="top-bar__button">
-		<Button type="primary">Create Event</Button>
+		<Button type="primary">{action}</Button>
 	</div>
 	<h1>{title}</h1>
 </div>
