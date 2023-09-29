@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
+	import Hero from '$lib/components/Hero.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import SectionHeader from '$lib/components/SectionHeader.svelte';
 	import type { PageData } from './$types';
@@ -9,7 +10,7 @@
 </script>
 
 <div class="page">
-	<img class="page__hero" src="https://picsum.photos/900/500" alt="" />
+	<Hero src="https://picsum.photos/900/500" />
 	<div class="page__header">
 		<div class="page__header-texts">
 			<h1>{event.title}</h1>
@@ -49,14 +50,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
-
-		&__hero {
-			aspect-ratio: 21 / 9;
-			background-color: var(--bg-muted);
-			border: 1px solid var(--line);
-			border-radius: var(--border-radius-medium);
-			object-fit: contain;
-		}
 
 		&__header-texts {
 			display: flex;
