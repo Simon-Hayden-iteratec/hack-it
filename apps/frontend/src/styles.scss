@@ -249,6 +249,10 @@ h1 {
 	}
 }
 
+.text-muted {
+	color: var(--text-muted);
+}
+
 ::placeholder {
 	opacity: 1;
 	color: var(--base-500);

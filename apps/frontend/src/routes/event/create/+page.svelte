@@ -1,8 +1,9 @@
 <h1>Create Event</h1>
 
 <form class="form">
-	<label class="form-field form-field--medium"
-		>Title*<input placeholder="Hackfest" type="text" required /></label
+	<label class="form-field form-field--medium">
+		<span>Title<span class="text-muted">*</span></span>
+		<input placeholder="Hackfest" type="text" required /></label
 	>
 	<label class="form-field"
 		>Summary<textarea
@@ -14,8 +15,14 @@
 	<label class="form-field">Description<textarea placeholder="" maxlength="2048" rows="5" /></label>
 	<fieldset>
 		<legend>Date</legend>
-		<label class="form-field form-field--short">Start Date*<input type="date" required /></label>
-		<label class="form-field form-field--short">End Date*<input type="date" required /></label>
+		<label class="form-field form-field--short">
+			<span>Start Date<span class="text-muted">*</span></span>
+			<input type="date" required /></label
+		>
+		<label class="form-field form-field--short">
+			<span>End Date<span class="text-muted">*</span></span>
+			<input type="date" required /></label
+		>
 	</fieldset>
 
 	<input type="submit" value="Create Event" />
