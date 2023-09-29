@@ -3,6 +3,7 @@ import { ConnectionService } from './connection/connection.service';
 import { EventCollection } from './event-collection/event-collection.service';
 import { ProjectCollection } from './project-collection/project-collection.service';
 import { UserCollection } from './user-collection/user-collection.service';
+import { WriteUpCollectionService } from './write-up-collection/write-up-collection.service';
 
 const CONNECTION_INIT = Symbol('connection-init');
 
@@ -20,12 +21,14 @@ const CONNECTION_INIT = Symbol('connection-init');
     UserCollection,
     EventCollection,
     ProjectCollection,
+    WriteUpCollectionService,
   ],
   exports: [
     ConnectionService,
     UserCollection,
     EventCollection,
     ProjectCollection,
+    WriteUpCollectionService,
   ],
 })
 export class DbModule {}

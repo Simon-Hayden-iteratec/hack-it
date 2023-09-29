@@ -11,7 +11,13 @@ async function bootstrap() {
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
 
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      forbidNonWhitelisted: true,
+      forbidUnknownValues: true,
+    })
+  );
 
   const config = new DocumentBuilder()
     .setTitle('HackIT API documentation')
