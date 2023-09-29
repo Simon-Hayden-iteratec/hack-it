@@ -4,10 +4,12 @@
 </script>
 
 <nav class="nav">
-	<picture class="nav__picture">
-		<source srcset={lightLogo} media="(prefers-color-scheme: dark)" />
-		<img src={darkLogo} alt="" />
-	</picture>
+	<a class="nav__link" href="/">
+		<picture class="nav__picture">
+			<source srcset={lightLogo} media="(prefers-color-scheme: dark)" />
+			<img src={darkLogo} alt="" />
+		</picture>
+	</a>
 </nav>
 
 <style lang="scss">
@@ -18,6 +20,10 @@
 		height: 48px;
 		justify-content: center;
 		padding: 16px;
+
+		&__link {
+			height: 100%;
+		}
 
 		&__picture {
 			display: inline-flex;
