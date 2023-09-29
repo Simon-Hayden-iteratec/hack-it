@@ -16,10 +16,19 @@
 			<p>{event.desc}</p>
 		</div>
 		<div class="page__meta">
-			<p class="page__meta-info">
-				Starts at: {event.start.day}.{event.start.month}.{event.start.year}
-			</p>
-			<p class="page__meta-info">Ends at: {event.end.day}.{event.end.month}.{event.end.year}</p>
+			<h3 class="page__meta-info">Event Information</h3>
+			<div class="page__meta-info">
+				<p class="page__meta-info-heading">Start Date</p>
+				<p>
+					{event.start.day}.{event.start.month}.{event.start.year}
+				</p>
+			</div>
+			<div class="page__meta-info">
+				<p class="page__meta-info-heading">End Date</p>
+				<p>
+					{event.end.day}.{event.end.month}.{event.end.year}
+				</p>
+			</div>
 		</div>
 	</div>
 	<SectionHeader title="Projects">
@@ -57,12 +66,20 @@
 		}
 
 		&__meta {
+			background-color: var(--base-025);
 			border: 1px solid var(--line);
 			border-radius: var(--border-radius-medium);
 			padding-block: 8px;
 
 			&-info {
+				display: flex;
+				flex-direction: column;
 				padding: 8px 16px;
+
+				&-heading {
+					color: var(--text-muted);
+					font-size: 14px;
+				}
 			}
 		}
 
