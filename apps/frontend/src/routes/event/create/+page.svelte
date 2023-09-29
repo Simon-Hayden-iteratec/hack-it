@@ -17,6 +17,8 @@
 		<label class="form-field form-field--short">Start Date*<input type="date" required /></label>
 		<label class="form-field form-field--short">End Date*<input type="date" required /></label>
 	</fieldset>
+
+	<input type="submit" value="Create Event" />
 </form>
 
 <style>

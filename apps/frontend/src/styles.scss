@@ -4,13 +4,7 @@
 	padding: 0;
 
 	&:focus-visible {
-		outline: solid 4px
-			hsla(
-				var(--secondary--h),
-				var(--secondary--s),
-				var(--secondary--l),
-				var(--focus-visible-opacity)
-			);
+		outline: solid 4px var(--focus-visible);
 	}
 }
 
@@ -32,7 +26,8 @@ html {
 	--primary: var(--primary-500);
 	--secondary: var(--secondary-500);
 
-	--focus-visible-opacity: 0.25;
+	--focus-visible: hsla(var(--secondary--h), var(--secondary--s), var(--secondary--l), 0.25);
+	--focus-visible-primary: hsla(var(--primary--h), var(--primary--s), var(--primary--l), 0.25);
 
 	// Color scheme - Edit here
 	--base--h: 0;
@@ -145,7 +140,8 @@ html {
 		--line: var(--base-200);
 		--line-highlighted: var(--base-400);
 
-		--focus-visible-opacity: 0.5;
+		--focus-visible: hsla(var(--secondary--h), var(--secondary--s), var(--secondary--l), 0.5);
+		--focus-visible-primary: hsla(var(--primary--h), var(--primary--s), var(--primary--l), 0.5);
 
 		--base--step: -10%;
 
@@ -192,7 +188,7 @@ h1 {
 	gap: 32px;
 	max-width: 600px;
 
-	& fieldset {
+	fieldset {
 		border: none;
 		display: flex;
 		gap: 16px;
@@ -200,6 +196,24 @@ h1 {
 		> legend {
 			visibility: hidden;
 			height: 0;
+		}
+	}
+
+	input[type='submit'] {
+		background-color: var(--primary);
+		border: none;
+		border-radius: var(--border-radius-small);
+		color: var(--base-000);
+		cursor: pointer;
+		font-size: 1rem;
+		line-height: 36px;
+		padding: 8px 32px;
+
+		--focus-visible: var(--focus-visible-primary);
+		outline-offset: 2px;
+
+		@media (min-width: 900px) {
+			align-self: flex-start;
 		}
 	}
 }
