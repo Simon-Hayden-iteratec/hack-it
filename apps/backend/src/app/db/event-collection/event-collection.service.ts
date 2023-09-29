@@ -58,6 +58,8 @@ export class EventCollection {
       start: toDate(dto.start),
       end: toDate(dto.end),
       owners: owners.map((owner) => owner._id),
+      createdAt: new Date(),
+      updatedAt: new Date(),
     };
     const result = await this.collection.insertOne(entity);
     const inserted = await this.collection.findOne({ _id: result.insertedId });

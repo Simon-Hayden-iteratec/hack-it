@@ -13,6 +13,9 @@ export abstract class EventEntity {
 
   owners: ObjectId[];
 
+  createdAt: Date;
+  updatedAt: Date;
+
   static toDto(entity: FullEventEntity): EventDto {
     return {
       ...EventEntity.toSimpleDto(entity),
@@ -33,6 +36,8 @@ export abstract class EventEntity {
       shortDesc: entity.shortDesc,
       end: toDay(entity.end),
       start: toDay(entity.start),
+      createdAt: entity.createdAt.toISOString(),
+      updatedAt: entity.createdAt.toISOString(),
     };
   }
 }
