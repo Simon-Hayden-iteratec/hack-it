@@ -7,7 +7,11 @@
 	}
 </script>
 
-<h1>Create Project</h1>
+<svelte:head>
+	<title>Create a Project</title>
+</svelte:head>
+
+<h1>Create a Project</h1>
 
 <form class="form" method="POST" action="?/create" on:submit|preventDefault={onSubmit}>
 	<label class="form-field form-field--medium">

@@ -7,7 +7,11 @@
 	}
 </script>
 
-<h1>Create Event</h1>
+<svelte:head>
+	<title>Create an Event</title>
+</svelte:head>
+
+<h1>Create an Event</h1>
 
 <form class="form" method="POST" action="?/create" on:submit|preventDefault={onSubmit}>
 	<label class="form-field form-field--medium">
