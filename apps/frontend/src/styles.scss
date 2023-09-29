@@ -198,6 +198,7 @@ h1 {
 
 	& > input,
 	& > textarea {
+		accent-color: var(--secondary);
 		background: var(--bg);
 		border: solid 1px var(--line);
 		border-radius: var(--border-radius-small);
