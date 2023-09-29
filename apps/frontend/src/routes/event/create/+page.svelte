@@ -11,6 +11,8 @@
 
 	function onFileChange(e: any) {
 		console.log(e);
+
+		// TODO upload and set path as hidden input value
 	}
 </script>
 
@@ -47,6 +49,8 @@
 			<input name="end" type="date" required /></label
 		>
 	</fieldset>
+
+	<input name="filepath" type="text" hidden />
 
 	<FilePicker label="Image" onchange={onFileChange}>Choose a file</FilePicker>
 
