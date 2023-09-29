@@ -1,5 +1,5 @@
 import { OmitType } from '@nestjs/swagger';
-import { IsOptional, IsString } from 'class-validator';
+import { IsArray, IsEmail, IsOptional, IsString } from 'class-validator';
 import { EventDto } from './event.dto';
 import { UserDto } from './user.dto';
 
@@ -30,5 +30,12 @@ export class SimpleProjectDto extends OmitType(ProjectDto, [
 export class CreateProjectDto extends OmitType(ProjectDto, [
   'id',
   'event',
+  'owners',
   'participants',
-] as const) {}
+] as const) {
+  @IsString()
+  event: string;
+  @IsArray()
+  @IsEmail({}, { each: true })
+  owners: string[];
+}
