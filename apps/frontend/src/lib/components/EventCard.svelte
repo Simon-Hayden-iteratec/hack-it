@@ -15,7 +15,7 @@
 
 <style lang="scss">
 	.event {
-		background-color: var(--secondary);
+		background-color: var(--card);
 		border-radius: var(--border-radius-medium);
 		display: flex;
 		flex-direction: column;

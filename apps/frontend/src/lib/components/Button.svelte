@@ -15,21 +15,22 @@
 
 <style lang="scss">
 	.button {
+		background-color: var(--bg);
 		border: none;
 		border-radius: var(--border-radius-small);
+		color: var(--text);
 		cursor: pointer;
 		font-size: 1rem;
 		line-height: 36px;
 		padding: 8px 32px;
 
 		&--primary {
-			background-color: var(--accent);
-			color: var(--on-accent);
+			--bg: var(--primary);
+			--text: var(--base-000);
 		}
 
 		&--secondary {
-			background-color: var(--secondary);
-			color: var(--on-secondary);
+			--bg: var(--base-200);
 		}
 	}
 </style>

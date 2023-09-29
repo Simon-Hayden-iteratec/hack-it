@@ -12,7 +12,8 @@
 
 <style lang="scss">
 	.nav {
-		border-bottom: 1px solid var(--secondary);
+		align-items: flex-end;
+		border-bottom: 1px solid var(--line);
 		display: flex;
 		height: 48px;
 		justify-content: center;
