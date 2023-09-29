@@ -1,6 +1,15 @@
+<script lang="ts">
+	function onSubmit(e: any) {
+		const formData = new FormData(e.target);
+
+		// TODO
+		console.log('submit', formData);
+	}
+</script>
+
 <h1>Create Event</h1>
 
-<form class="form">
+<form class="form" method="POST" action="?/create" on:submit|preventDefault={onSubmit}>
 	<label class="form-field form-field--medium">
 		<span>Title<span class="text-muted">*</span></span>
 		<input name="title" placeholder="Hackfest" type="text" required /></label
