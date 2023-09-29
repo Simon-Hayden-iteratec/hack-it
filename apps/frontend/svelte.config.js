@@ -1,11 +1,12 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
+import * as path from 'node:path';
 import tsConfigBase from '../../tsconfig.base.json' assert { type: 'json' };
 
 /** @type Record<string, string> */
 const flattened = {};
 Object.entries(tsConfigBase.compilerOptions.paths).forEach(([alias, target]) => {
-	flattened[alias] = target[0];
+	flattened[alias] = path.join('..', '..', target[0]);
 });
 
 /** @type {import('@sveltejs/kit').Config} */

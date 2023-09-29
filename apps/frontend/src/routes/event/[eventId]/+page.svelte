@@ -37,7 +37,8 @@
 
 		&__hero {
 			aspect-ratio: 21 / 9;
-			background-color: var(--secondary);
+			background-color: var(--bg-muted);
+			border: solid 1px var(--line);
 			border-radius: var(--border-radius-medium);
 			object-fit: contain;
 		}

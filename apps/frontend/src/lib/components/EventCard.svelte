@@ -24,9 +24,16 @@
 
 <style lang="scss">
 	.event {
-		background-color: var(--card);
+		background-color: var(--bg);
+		border: solid 1px var(--line);
 		border-radius: var(--border-radius-medium);
 		container-type: inline-size;
+		transition: var(--card-transition);
+
+		&:hover {
+			--bg: var(--bg-highlighted);
+			--line: var(--line-highlighted);
+		}
 
 		&__card {
 			display: flex;
@@ -53,7 +60,7 @@
 		}
 
 		&__meta {
-			background-color: antiquewhite;
+			background-color: var(--base-050);
 			border-radius: var(--border-radius-small);
 			color: var(--text-muted);
 			padding: 16px;
