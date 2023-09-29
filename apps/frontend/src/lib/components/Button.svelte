@@ -23,10 +23,12 @@
 		font-size: 1rem;
 		line-height: 36px;
 		padding: 8px 32px;
+		outline-offset: 2px;
 
 		&--primary {
 			--bg: var(--primary);
 			--text: var(--base-000);
+			--focus-visible: var(--focus-visible-primary);
 		}
 
 		&--secondary {
