@@ -1,10 +1,12 @@
 <script lang="ts">
-	function onSubmit(e: any) {
+	import type { EventHandler } from 'svelte/elements';
+
+	const onSubmit: EventHandler<SubmitEvent, HTMLFormElement> | undefined | null = (e: any) => {
 		const formData = new FormData(e.target);
 
 		// TODO
 		console.log('submit', formData);
-	}
+	};
 </script>
 
 <svelte:head>
