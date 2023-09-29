@@ -1,4 +1,4 @@
-import { CreateEventDto, EventDto } from '@hack-it/dtos';
+import { CreateEventDto, EventDto, SimpleEventDto } from '@hack-it/dtos';
 import {
   Body,
   Controller,
@@ -22,9 +22,9 @@ export class EventController {
   ) {}
 
   @Get()
-  async getAllEvents(): Promise<EventDto[]> {
+  async getAllEvents(): Promise<SimpleEventDto[]> {
     const events = await this.eventCollection.getAllEvents();
-    return events.map(EventEntity.toDto);
+    return events.map(EventEntity.toSimpleDto);
   }
 
   @Get(':eventId')

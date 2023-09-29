@@ -1,12 +1,12 @@
 import { CreateUserDto } from '@hack-it/dtos';
 import { Injectable } from '@nestjs/common';
 import { ConnectionService } from '../connection/connection.service';
-import { UserEntity } from './user.entity';
+import { USER_COLLECTION, UserEntity } from './user.entity';
 
 @Injectable()
 export class UserCollection {
   private readonly collection =
-    this.connection.getCollection<UserEntity>('users');
+    this.connection.getCollection<UserEntity>(USER_COLLECTION);
   constructor(private connection: ConnectionService) {}
 
   async findOrCreateEmails(emails: string[]): Promise<UserEntity[]> {

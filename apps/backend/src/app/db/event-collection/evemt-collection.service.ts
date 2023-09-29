@@ -1,9 +1,13 @@
 import { CreateEventDto, toDate } from '@hack-it/dtos';
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { ObjectId } from 'mongodb';
+import { AggregationCursor, ObjectId } from 'mongodb';
 import { ConnectionService } from '../connection/connection.service';
-import { UserEntity } from '../user-collection/user.entity';
-import { EventEntity } from './event.entity';
+import {
+  PROJECT_COLLECTION,
+  ProjectEntity,
+} from '../project-collection/project.entity';
+import { USER_COLLECTION, UserEntity } from '../user-collection/user.entity';
+import { EventEntity, FullEventEntity } from './event.entity';
 
 @Injectable()
 export class EventCollection {
@@ -15,14 +19,38 @@ export class EventCollection {
     return this.collection.find().toArray();
   }
 
-  getEvent(id: ObjectId): Promise<EventEntity | null> {
-    return this.collection.findOne({ _id: id });
+  async getEvent(id: ObjectId): Promise<FullEventEntity | null> {
+    let aggregateResult: AggregationCursor<FullEventEntity>;
+    try {
+      const aggregateResult = this.collection.aggregate<FullEventEntity>([
+        { $match: { _id: id } },
+        {
+          $lookup: {
+            from: USER_COLLECTION,
+            localField: 'owners' satisfies keyof EventEntity,
+            foreignField: '_id' satisfies keyof UserEntity,
+            as: 'owners' satisfies keyof FullEventEntity,
+          },
+        },
+        {
+          $lookup: {
+            from: PROJECT_COLLECTION,
+            localField: 'projects' satisfies keyof EventEntity,
+            foreignField: '_id' satisfies keyof ProjectEntity,
+            as: 'projects' satisfies keyof FullEventEntity,
+          },
+        },
+      ]);
+      return await aggregateResult.next();
+    } finally {
+      await aggregateResult.close();
+    }
   }
 
   async createEvent(
     owners: UserEntity[],
     dto: CreateEventDto
-  ): Promise<EventEntity> {
+  ): Promise<FullEventEntity> {
     const entity: Omit<EventEntity, '_id'> = {
       title: dto.title,
       desc: dto.desc,
@@ -38,6 +66,10 @@ export class EventCollection {
     if (!inserted) {
       throw new InternalServerErrorException('Inserted document not found');
     }
-    return inserted;
+    return {
+      ...inserted,
+      owners,
+      projects: [],
+    };
   }
 }

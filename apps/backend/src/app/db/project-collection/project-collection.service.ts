@@ -3,12 +3,12 @@ import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { ObjectId } from 'mongodb';
 import { ConnectionService } from '../connection/connection.service';
 import { UserEntity } from '../user-collection/user.entity';
-import { ProjectEntity } from './project.entity';
+import { PROJECT_COLLECTION, ProjectEntity } from './project.entity';
 
 @Injectable()
 export class ProjectCollection {
   private readonly collection =
-    this.connection.getCollection<ProjectEntity>('projects');
+    this.connection.getCollection<ProjectEntity>(PROJECT_COLLECTION);
 
   constructor(private connection: ConnectionService) {}
 

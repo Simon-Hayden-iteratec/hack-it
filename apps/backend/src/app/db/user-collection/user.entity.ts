@@ -16,3 +16,5 @@ export abstract class UserEntity {
     }
   }
 }
+
+export const USER_COLLECTION = 'users';

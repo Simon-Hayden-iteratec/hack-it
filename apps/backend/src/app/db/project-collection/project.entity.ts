@@ -21,3 +21,5 @@ export abstract class ProjectEntity {
     }
   }
 }
+
+export const PROJECT_COLLECTION = 'projects';
