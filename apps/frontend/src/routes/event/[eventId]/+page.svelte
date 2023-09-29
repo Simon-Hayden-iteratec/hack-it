@@ -23,7 +23,7 @@
 		</div>
 	</div>
 	<SectionHeader title="Projects">
-		<Button type="primary" href="project/create">Create Project</Button>
+		<Button type="primary" href="project/create">Create a Project</Button>
 	</SectionHeader>
 	<div class="page__projects">
 		{#each event.projects ?? [] as project}
