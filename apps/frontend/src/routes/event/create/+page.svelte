@@ -32,6 +32,10 @@
 </form>
 
 <style>
+	h1 {
+		margin-bottom: 3rem;
+	}
+
 	fieldset > label {
 		flex: 1 1 50%;
 	}
