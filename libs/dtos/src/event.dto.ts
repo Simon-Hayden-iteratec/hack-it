@@ -1,4 +1,5 @@
 import { OmitType } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
 import {
   IsArray,
   IsEmail,
@@ -25,9 +26,11 @@ export class EventDto {
   desc: string | undefined;
 
   @ValidateNested()
+  @Type(() => DayDto)
   start: DayDto;
 
   @ValidateNested()
+  @Type(() => DayDto)
   end: DayDto;
 
   updatedAt: string;
