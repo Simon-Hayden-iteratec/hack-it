@@ -4,7 +4,13 @@
 	padding: 0;
 
 	&:focus-visible {
-		outline: solid 4px var(--focus-visible);
+		outline: solid 4px
+			hsla(
+				var(--secondary--h),
+				var(--secondary--s),
+				var(--secondary--l),
+				var(--focus-visible-opacity)
+			);
 	}
 }
 
@@ -26,7 +32,7 @@ html {
 	--primary: var(--primary-500);
 	--secondary: var(--secondary-500);
 
-	--focus-visible: hsla(var(--secondary--h), var(--secondary--s), var(--secondary--l), 0.25);
+	--focus-visible-opacity: 0.25;
 
 	// Color scheme - Edit here
 	--base--h: 0;
@@ -43,6 +49,8 @@ html {
 	--secondary--s: 100%;
 	--secondary--l: 36.7%;
 	--secondary--step: 7%;
+
+	--tertiary: hsl(54, 100%, 50%);
 
 	// Generated palette - Add new variants here
 	--base-000: hsl(
@@ -137,16 +145,18 @@ html {
 		--line: var(--base-200);
 		--line-highlighted: var(--base-400);
 
-		--focus-visible: hsla(var(--secondary--h), var(--secondary--s), var(--secondary--l), 0.5);
+		--focus-visible-opacity: 0.5;
 
 		--base--step: -10%;
 
-		--primary--h: 53.9;
+		--primary--h: 54;
 		--primary--s: 100%;
 		--primary--l: 50%;
 		--primary-step: -10%;
 
 		--secondary--step: -7%;
+
+		--tertiary: hsl(312.4, 75.4%, 35.1%);
 
 		img {
 			filter: saturate(0.9);
@@ -214,4 +224,9 @@ h1 {
 ::placeholder {
 	opacity: 1;
 	color: var(--base-500);
+}
+
+::selection {
+	color: var(--text);
+	background: var(--tertiary);
 }
