@@ -12,11 +12,11 @@
 
 <style>
 	.nav {
-		align-items: flex-end;
 		border-bottom: 1px solid var(--secondary);
 		display: flex;
-		height: 40px;
-		padding: 8px;
+		height: 48px;
+		justify-content: center;
+		padding: 16px;
 	}
 
 	.picture {

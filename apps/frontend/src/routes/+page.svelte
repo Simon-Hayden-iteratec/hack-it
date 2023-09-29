@@ -1,13 +1,13 @@
 <script>
 	import Button from '$lib/components/Button.svelte';
 	import EventCard from '$lib/components/EventCard.svelte';
-	import TopBar from '$lib/components/TopBar.svelte';
+	import SectionHeader from '$lib/components/SectionHeader.svelte';
 </script>
 
 <div class="page">
-	<TopBar title="Events">
+	<SectionHeader title="Events">
 		<Button href="event/create" type="primary">Create Event</Button>
-	</TopBar>
+	</SectionHeader>
 	<div class="events">
 		<a href="event/1">
 			<EventCard id="id" />

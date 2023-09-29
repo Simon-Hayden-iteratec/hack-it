@@ -3,17 +3,17 @@
 </script>
 
 <div class="top-bar">
+	<h2>{title}</h2>
 	<div class="top-bar__actions">
 		<slot />
 	</div>
-	<h1>{title}</h1>
 </div>
 
 <style lang="scss">
 	.top-bar {
+		align-items: center;
 		display: flex;
-		flex-direction: column;
-		height: 160px;
+		flex-direction: row;
 		justify-content: space-between;
 
 		&__actions {
