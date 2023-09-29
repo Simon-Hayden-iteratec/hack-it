@@ -15,12 +15,19 @@
 
 <style lang="scss">
 	.project {
-		background-color: var(--card);
+		background-color: var(--bg);
+		border: solid 1px var(--line);
 		border-radius: var(--border-radius-medium);
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
 		padding: 24px;
+		transition: var(--card-transition);
+
+		&:hover {
+			--bg: var(--bg-highlighted);
+			--line: var(--line-highlighted);
+		}
 
 		&__description {
 			-moz-box-orient: vertical;
