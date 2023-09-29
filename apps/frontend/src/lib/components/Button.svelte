@@ -21,8 +21,8 @@
 		color: var(--text);
 		cursor: pointer;
 		font-size: 1rem;
-		line-height: 36px;
-		padding: 8px 32px;
+		line-height: 32px;
+		padding: 4px 24px;
 		outline-offset: 2px;
 
 		&--primary {
