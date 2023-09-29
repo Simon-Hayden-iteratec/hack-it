@@ -30,6 +30,9 @@ export class EventDto {
   @ValidateNested()
   end: DayDto;
 
+  updatedAt: string;
+  createdAt: string;
+
   owners: UserDto[];
   projects: SimpleProjectDto[];
 }

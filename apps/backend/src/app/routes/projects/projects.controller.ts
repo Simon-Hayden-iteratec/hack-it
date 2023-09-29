@@ -22,6 +22,12 @@ export class ProjectController {
     private userCollection: UserCollection
   ) {}
 
+  @Get()
+  async getAllProjects(): Promise<SimpleProjectDto[]> {
+    const entities = await this.projectCollection.getAll();
+    return entities.map(ProjectEntity.toSimpleDto);
+  }
+
   @Get(':projectId')
   async getProject(
     @Param('projectId') projectId: string

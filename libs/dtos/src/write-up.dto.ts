@@ -7,6 +7,7 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
+import { SimpleProjectDto } from './project.dto';
 import { UserDto } from './user.dto';
 
 export class BaseWriteUpData {
@@ -41,6 +42,8 @@ export class WriteUpDto {
   createdAt: string;
   updatedAt: string;
 
+  project: SimpleProjectDto;
+
   @ApiProperty({
     oneOf: refs(TextWriteUpDataDto, ImgWriteUpDataDto),
   })
@@ -61,12 +64,22 @@ export class WriteUpDto {
 
 export class SimpleWriteUpDto extends OmitType(WriteUpDto, [
   'author',
+  'project',
 ] as const) {}
 
-export class CreateWriteUpDto extends OmitType(WriteUpDto, ['id', 'author', 'createdAt', 'updatedAt'] as const) {
+export class CreateWriteUpDto extends OmitType(WriteUpDto, [
+  'id',
+  'author',
+  'project',
+  'createdAt',
+  'updatedAt',
+] as const) {
   /**
    * The email of the author.
    */
   @IsEmail()
   author: string;
+
+  @IsString()
+  project: string;
 }

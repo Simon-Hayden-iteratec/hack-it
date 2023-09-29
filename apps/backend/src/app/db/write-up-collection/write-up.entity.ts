@@ -6,6 +6,7 @@ import {
 } from '@hack-it/dtos';
 import { Logger } from '@nestjs/common';
 import { ObjectId } from 'mongodb';
+import { ProjectEntity } from '../project-collection/project.entity';
 import { UserEntity } from '../user-collection/user.entity';
 
 export abstract class WriteUpEntity {
@@ -19,9 +20,13 @@ export abstract class WriteUpEntity {
   createdAt: Date;
   updatedAt: Date;
 
+  project: ObjectId;
+
   data: TextWriteUpDataEntity | ImgWriteUpDataEntity;
 
-  static toSimpleDto(entity: Omit<WriteUpEntity, 'author'>): SimpleWriteUpDto {
+  static toSimpleDto(
+    entity: Omit<WriteUpEntity, 'author' | 'project'>
+  ): SimpleWriteUpDto {
     let data: WriteUpDto['data'];
     switch (entity.data.type) {
       case 'text': {
@@ -54,12 +59,15 @@ export abstract class WriteUpEntity {
     return {
       ...this.toSimpleDto(entity),
       author: UserEntity.toDto(entity.author),
-    }
+      project: ProjectEntity.toSimpleDto(entity.project),
+    };
   }
 }
 
-export interface FullWriteUpEntity extends Omit<WriteUpEntity, 'author'> {
+export interface FullWriteUpEntity
+  extends Omit<WriteUpEntity, 'author' | 'project'> {
   author: UserEntity;
+  project: ProjectEntity;
 }
 
 const logger = new Logger(WriteUpEntity.name);

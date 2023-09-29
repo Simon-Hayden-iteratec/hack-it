@@ -12,6 +12,10 @@ export class ProjectCollection {
 
   constructor(private connection: ConnectionService) {}
 
+  getAll(): Promise<ProjectEntity[]> {
+    return this.collection.find().toArray();
+  }
+
   getById(projectId: ObjectId): Promise<ProjectEntity | null> {
     return this.collection.findOne({ _id: projectId });
   }
