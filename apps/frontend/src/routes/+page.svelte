@@ -1,7 +1,11 @@
-<script>
+<script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import EventCard from '$lib/components/EventCard.svelte';
 	import SectionHeader from '$lib/components/SectionHeader.svelte';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
+	$: events = data.events;
 </script>
 
 <div class="page">
@@ -9,15 +13,11 @@
 		<Button href="event/create" type="primary">Create Event</Button>
 	</SectionHeader>
 	<div class="events">
-		<a href="event/1">
-			<EventCard id="id" />
-		</a>
-		<a href="event/2">
-			<EventCard id="id" />
-		</a>
-		<a href="event/3">
-			<EventCard id="id" />
-		</a>
+		{#each events as event}
+			<a href="event/1">
+				<EventCard {event} />
+			</a>
+		{/each}
 	</div>
 </div>
 
