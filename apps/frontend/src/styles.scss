@@ -4,8 +4,7 @@
 	padding: 0;
 
 	&:focus-visible {
-		outline: solid 4px var(--secondary-300);
-		outline-offset: 2px;
+		outline: solid 4px hsla(var(--secondary--h), var(--secondary--s), var(--secondary--l), 0.25);
 	}
 }
 
@@ -157,8 +156,48 @@ a {
 	text-decoration: none;
 }
 
+h1 {
+	margin-bottom: 3rem;
+}
+
 .container {
 	max-width: 1000px;
 	margin-inline: auto;
 	padding: 16px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.form-field {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+
+	& > input,
+	& > textarea {
+		background: var(--bg);
+		border: solid 1px var(--line);
+		border-radius: var(--border-radius-small);
+		box-sizing: border-box;
+		font-size: 1rem;
+		padding: 8px;
+
+		&:focus {
+			--bg: var(--bg-highlighted);
+			border-color: var(--secondary);
+		}
+	}
+
+	& > input {
+		height: 40px;
+	}
+
+	& > textarea {
+		resize: vertical;
+		min-height: 40px;
+	}
 }
