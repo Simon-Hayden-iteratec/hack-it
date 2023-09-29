@@ -80,6 +80,11 @@ html {
 		var(--base--s),
 		calc(var(--base--l) + calc(var(--factor-400) * var(--base--step)))
 	);
+	--base-500: hsl(
+		var(--base--h),
+		var(--base--s),
+		calc(var(--base--l) + calc(var(--factor-500) * var(--base--step)))
+	);
 	--base-700: hsl(
 		var(--base--h),
 		var(--base--s),
@@ -204,4 +209,9 @@ h1 {
 		resize: vertical;
 		min-height: 40px;
 	}
+}
+
+::placeholder {
+	opacity: 1;
+	color: var(--base-500);
 }
