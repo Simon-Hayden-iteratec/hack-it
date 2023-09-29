@@ -4,7 +4,7 @@
 	padding: 0;
 
 	&:focus-visible {
-		outline: solid 4px hsla(var(--secondary--h), var(--secondary--s), var(--secondary--l), 0.25);
+		outline: solid 4px var(--focus-visible);
 	}
 }
 
@@ -25,6 +25,8 @@ html {
 
 	--primary: var(--primary-500);
 	--secondary: var(--secondary-500);
+
+	--focus-visible: hsla(var(--secondary--h), var(--secondary--s), var(--secondary--l), 0.25);
 
 	// Color scheme - Edit here
 	--base--h: 0;
@@ -129,6 +131,8 @@ html {
 		--bg-muted: var(--base-100);
 		--line: var(--base-200);
 		--line-highlighted: var(--base-400);
+
+		--focus-visible: hsla(var(--secondary--h), var(--secondary--s), var(--secondary--l), 0.5);
 
 		--base--step: -10%;
 
