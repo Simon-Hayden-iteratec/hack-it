@@ -12,7 +12,6 @@ export abstract class EventEntity {
   end: Date;
 
   owners: ObjectId[];
-  projects: ObjectId[];
 
   static toDto(entity: FullEventEntity): EventDto {
     return {

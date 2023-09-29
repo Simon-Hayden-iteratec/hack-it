@@ -35,8 +35,8 @@ export class EventCollection {
         {
           $lookup: {
             from: PROJECT_COLLECTION,
-            localField: 'projects' satisfies keyof EventEntity,
-            foreignField: '_id' satisfies keyof ProjectEntity,
+            localField: '_id' satisfies keyof EventEntity,
+            foreignField: 'event' satisfies keyof ProjectEntity,
             as: 'projects' satisfies keyof FullEventEntity,
           },
         },
@@ -55,7 +55,6 @@ export class EventCollection {
       title: dto.title,
       desc: dto.desc,
       shortDesc: dto.shortDesc,
-      projects: [],
       start: toDate(dto.start),
       end: toDate(dto.end),
       owners: owners.map((owner) => owner._id),

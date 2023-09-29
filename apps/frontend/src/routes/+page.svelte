@@ -14,7 +14,7 @@
 	</SectionHeader>
 	<div class="events">
 		{#each events as event}
-			<a href="event/1">
+			<a href="event/{event.id}">
 				<EventCard {event} />
 			</a>
 		{/each}
