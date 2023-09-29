@@ -9,6 +9,7 @@ export abstract class EventEntity {
   start: Date;
   end: Date;
 
+  owners: ObjectId[];
   projects: ObjectId[];
 
   static toDto(entity: EventEntity): EventDto {
@@ -19,6 +20,7 @@ export abstract class EventEntity {
       shortDesc: entity.shortDesc,
       end: toDay(entity.end),
       start: toDay(entity.start),
+      owners: [], // TODO
     }
   }
 }

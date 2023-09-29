@@ -1,6 +1,7 @@
 import { OmitType } from '@nestjs/swagger';
-import { IsArray, IsDateString, IsOptional, IsString, MaxLength, MinLength, ValidateNested } from 'class-validator';
+import { IsArray, IsEmail, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { DayDto } from './day.dto';
+import { UserDto } from './user.dto';
 
 
 export class EventDto {
@@ -22,8 +23,15 @@ export class EventDto {
 
   @ValidateNested()
   end: DayDto;
+
+  owners: UserDto[];
 }
 
-export class CreateEventDto extends OmitType(EventDto, ['id'] as const) {
-
+export class CreateEventDto extends OmitType(EventDto, ['id', 'owners'] as const) {
+  /**
+   * The owners' emails.
+   */
+  @IsArray()
+  @IsEmail({}, {each: true})
+  owners: string[];
 }

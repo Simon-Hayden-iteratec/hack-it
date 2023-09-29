@@ -9,7 +9,14 @@ export class UserCollection {
     this.connection.getCollection<UserEntity>('users');
   constructor(private connection: ConnectionService) {}
 
-  async getUser(email: string): Promise<UserEntity | null> {
+  async findOrCreateEmails(emails: string[]): Promise<UserEntity[]> {
+    const users = Promise.all(
+      emails.map((email) => this.findOrCreateEmail(email))
+    );
+    return users;
+  }
+
+  async getUserByEmail(email: string): Promise<UserEntity | null> {
     return this.collection.findOne({ email });
   }
 
@@ -30,6 +37,19 @@ export class UserCollection {
         upsert: true,
         returnDocument: 'after',
       }
+    );
+  }
+
+  async findOrCreateEmail(email: string): Promise<UserEntity> {
+    const $setOnInsert: Omit<UserEntity, '_id'> = {
+      email,
+      company: undefined,
+      name: undefined,
+    };
+    return this.collection.findOneAndUpdate(
+      { email },
+      { $setOnInsert },
+      { upsert: true, returnDocument: 'after' }
     );
   }
 }

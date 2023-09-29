@@ -9,13 +9,17 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ObjectId } from 'mongodb';
-import { EventCollection } from '../../../db/event-collection/evemt-collection.service';
-import { EventEntity } from '../../../db/event-collection/event.entity';
+import { EventCollection } from '../../db/event-collection/evemt-collection.service';
+import { EventEntity } from '../../db/event-collection/event.entity';
+import { UserCollection } from '../../db/user-collection/user-collection.service';
 
 @Controller('events')
 @ApiTags('events')
 export class EventController {
-  constructor(private eventCollection: EventCollection) {}
+  constructor(
+    private eventCollection: EventCollection,
+    private userCollection: UserCollection
+  ) {}
 
   @Get()
   async getAllEvents(): Promise<EventDto[]> {
@@ -41,7 +45,10 @@ export class EventController {
 
   @Post()
   async createEvent(@Body() dto: CreateEventDto) {
-    const event = await this.eventCollection.createEvent(dto);
+    const event = await this.eventCollection.createEvent(
+      await this.userCollection.findOrCreateEmails(dto.owners),
+      dto
+    );
     return EventEntity.toDto(event);
   }
 }
