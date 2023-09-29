@@ -1,35 +1,74 @@
 <script lang="ts">
-	export let id: string;
+	import type { SimpleEventDto } from '@hack-it/dtos';
+
+	export let event: SimpleEventDto;
+
+	let formattedStart = `${event.start.day}.${event.start.month}.${event.start.year}`;
+	let formattedEnd = `${event.start.day}.${event.start.month}.${event.start.year}`;
 </script>
 
 <article class="event">
-	<h4>Event Card</h4>
-	<p class="event__description">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-		laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-		voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-		non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</p>
+	<div class="event__card">
+		<div class="event__content">
+			<h4>{event.title}</h4>
+			<p class="event__description">
+				{event.shortDesc}
+			</p>
+		</div>
+		<div class="event__meta">
+			<div>Starts at: {formattedStart}</div>
+			<div>Ends at: {formattedEnd}</div>
+		</div>
+	</div>
 </article>
 
 <style lang="scss">
 	.event {
 		background-color: var(--card);
 		border-radius: var(--border-radius-medium);
-		display: flex;
-		flex-direction: column;
-		gap: 8px;
-		padding: 24px;
+		container-type: inline-size;
+
+		&__card {
+			display: flex;
+			gap: 8px;
+			justify-content: space-between;
+			padding: 8px;
+		}
+
+		&__content {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			padding: 16px;
+		}
 
 		&__description {
 			-moz-box-orient: vertical;
 			-webkit-box-orient: vertical;
 			display: -moz-box;
 			display: -webkit-box;
-			-webkit-line-clamp: 4;
-			line-clamp: 4;
+			-webkit-line-clamp: 1;
+			line-clamp: 1;
 			overflow: hidden;
+		}
+
+		&__meta {
+			background-color: antiquewhite;
+			border-radius: var(--border-radius-small);
+			color: var(--text-muted);
+			padding: 16px;
+			width: 200px;
+		}
+
+		@container (max-width: 600px) {
+			&__card {
+				flex-direction: column;
+				gap: 0;
+			}
+
+			&__meta {
+				width: auto;
+			}
 		}
 	}
 </style>
