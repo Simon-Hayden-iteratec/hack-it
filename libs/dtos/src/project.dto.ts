@@ -12,6 +12,7 @@ export class ProjectDto {
   @IsString()
   @IsOptional()
   desc: string;
+
   @IsString()
   @IsOptional()
   shortDesc: string;

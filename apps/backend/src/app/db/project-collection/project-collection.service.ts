@@ -1,9 +1,13 @@
 import { CreateProjectDto } from '@hack-it/dtos';
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { ObjectId } from 'mongodb';
+import { AggregationCursor, ObjectId } from 'mongodb';
 import { ConnectionService } from '../connection/connection.service';
-import { UserEntity } from '../user-collection/user.entity';
-import { PROJECT_COLLECTION, ProjectEntity } from './project.entity';
+import { USER_COLLECTION, UserEntity } from '../user-collection/user.entity';
+import {
+  FullProjectEntity,
+  PROJECT_COLLECTION,
+  ProjectEntity,
+} from './project.entity';
 
 @Injectable()
 export class ProjectCollection {
@@ -16,8 +20,32 @@ export class ProjectCollection {
     return this.collection.find().toArray();
   }
 
-  getById(projectId: ObjectId): Promise<ProjectEntity | null> {
-    return this.collection.findOne({ _id: projectId });
+  async getById(projectId: ObjectId): Promise<FullProjectEntity | null> {
+    let result: AggregationCursor<FullProjectEntity>;
+    try {
+      result = this.collection.aggregate<FullProjectEntity>([
+        { $match: { _id: projectId } },
+        {
+          $lookup: {
+            from: USER_COLLECTION,
+            localField: 'owners' satisfies keyof ProjectEntity,
+            foreignField: '_id' satisfies keyof UserEntity,
+            as: 'owners' satisfies keyof FullProjectEntity,
+          },
+        },
+        {
+          $lookup: {
+            from: USER_COLLECTION,
+            localField: 'participants' satisfies keyof ProjectEntity,
+            foreignField: '_id' satisfies keyof UserEntity,
+            as: 'participants' satisfies keyof FullProjectEntity,
+          },
+        },
+      ]);
+      return await result.next();
+    } finally {
+      await result?.close();
+    }
   }
 
   getForEvent(eventId: ObjectId): Promise<ProjectEntity[]> {

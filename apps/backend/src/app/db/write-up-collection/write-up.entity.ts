@@ -67,7 +67,7 @@ export abstract class WriteUpEntity {
 export interface FullWriteUpEntity
   extends Omit<WriteUpEntity, 'author' | 'project'> {
   author: UserEntity;
-  project: ProjectEntity;
+  project: Omit<ProjectEntity, 'owners' | 'event' | 'participants'>;
 }
 
 const logger = new Logger(WriteUpEntity.name);

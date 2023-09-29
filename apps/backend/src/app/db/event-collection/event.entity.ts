@@ -47,3 +47,5 @@ export interface FullEventEntity
   owners: UserEntity[];
   projects: ProjectEntity[];
 }
+
+export const EVENT_COLLECTION = 'events';

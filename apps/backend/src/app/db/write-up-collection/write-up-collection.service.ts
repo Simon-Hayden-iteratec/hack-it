@@ -68,7 +68,7 @@ export class WriteUpCollectionService {
 
   async createWriteUp(
     author: UserEntity,
-    project: ProjectEntity,
+    project: Omit<ProjectEntity, 'owners' | 'event' | 'participants'>,
     dto: CreateWriteUpDto
   ): Promise<FullWriteUpEntity> {
     const entity: Omit<WriteUpEntity, '_id'> = {

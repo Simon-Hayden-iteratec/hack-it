@@ -1,4 +1,4 @@
-import { CreateProjectDto, SimpleProjectDto } from '@hack-it/dtos';
+import { CreateProjectDto, ProjectDto, SimpleProjectDto } from '@hack-it/dtos';
 import {
   BadRequestException,
   Body,
@@ -29,9 +29,7 @@ export class ProjectController {
   }
 
   @Get(':projectId')
-  async getProject(
-    @Param('projectId') projectId: string
-  ): Promise<SimpleProjectDto> {
+  async getProject(@Param('projectId') projectId: string): Promise<ProjectDto> {
     let id: ObjectId;
     try {
       id = new ObjectId(projectId);
@@ -43,7 +41,7 @@ export class ProjectController {
     if (!entity) {
       throw new NotFoundException(`No project with ID '${projectId}' found`);
     }
-    return ProjectEntity.toSimpleDto(entity);
+    return ProjectEntity.toDto(entity);
   }
 
   @Get('event/:eventId')
