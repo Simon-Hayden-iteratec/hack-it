@@ -186,9 +186,26 @@ h1 {
 }
 
 .form {
+	margin-inline: auto;
 	display: flex;
 	flex-direction: column;
 	gap: 32px;
+	max-width: 600px;
+
+	& fieldset {
+		border: none;
+		display: flex;
+		gap: 16px;
+
+		> legend {
+			visibility: hidden;
+			height: 0;
+		}
+
+		> label {
+			flex: 1 1 50%;
+		}
+	}
 }
 
 .form-field {
