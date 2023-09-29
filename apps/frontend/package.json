@@ -32,5 +32,11 @@
 		"vite": "^4.4.2",
 		"vitest": "^0.32.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@fastify/multipart": "^8.0.0",
+		"@fastify/static": "^6.11.2",
+		"@nestjs/platform-fastify": "^10.2.6",
+		"fastify": "^4.23.2"
+	}
 }

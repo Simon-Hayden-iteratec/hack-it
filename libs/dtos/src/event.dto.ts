@@ -49,6 +49,8 @@ export class CreateEventDto extends OmitType(EventDto, [
   'id',
   'owners',
   'projects',
+  'createdAt',
+  'updatedAt',
 ] as const) {
   /**
    * The owners' emails.

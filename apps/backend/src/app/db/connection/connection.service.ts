@@ -1,5 +1,5 @@
 import { BeforeApplicationShutdown, Injectable, Logger } from '@nestjs/common';
-import { Collection, MongoClient } from 'mongodb';
+import { Collection, Db, MongoClient } from 'mongodb';
 import {
   MONGODB_DB,
   MONGODB_HOST,
@@ -18,6 +18,7 @@ export class ConnectionService implements BeforeApplicationShutdown {
       auth: { username: MONGODB_USER_NAME, password: MONGODB_USER_PASSWORD },
     }
   );
+  private readonly db = this.client.db(MONGODB_DB);
 
   async init(): Promise<void> {
     this.logger.verbose('Connecting to MongoDB...');
@@ -25,8 +26,12 @@ export class ConnectionService implements BeforeApplicationShutdown {
     this.logger.verbose('MongoDB client is connected');
   }
 
+  getDb(): Db {
+    return this.db;
+  }
+
   getCollection<D extends object>(name: string): Collection<Omit<D, '_id'>> {
-    return this.client.db(MONGODB_DB).collection(name);
+    return this.db.collection(name);
   }
 
   async beforeApplicationShutdown() {

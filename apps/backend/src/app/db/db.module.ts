@@ -13,7 +13,7 @@ const CONNECTION_INIT = Symbol('connection-init');
     ConnectionService,
     {
       provide: CONNECTION_INIT,
-      useFactory: async (service) => {
+      useFactory: async (service: ConnectionService) => {
         await service.init();
       },
       inject: [ConnectionService],
