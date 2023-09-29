@@ -7,6 +7,7 @@
 
 	export let data: PageData;
 	$: event = data.event;
+	$: projects = event.projects ?? [];
 </script>
 
 <div class="page">
@@ -36,7 +37,7 @@
 		<Button type="primary" href="project/create">Create a Project</Button>
 	</SectionHeader>
 	<div class="page__projects">
-		{#each event.projects ?? [] as project}
+		{#each projects as project}
 			<a href="project/{project.id}">
 				<ProjectCard {project} />
 			</a>
