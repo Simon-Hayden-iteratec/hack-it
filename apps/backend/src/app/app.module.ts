@@ -4,6 +4,7 @@ import { EventController } from './routes/events/events.controller';
 import { ProjectController } from './routes/projects/projects.controller';
 import { UserController } from './routes/users/users.controller';
 import { WriteUpController } from './routes/write-ups/write-ups.controller';
+import { FilesController } from './routes/files/files.controller';
 
 @Module({
   imports: [DbModule],
@@ -12,6 +13,7 @@ import { WriteUpController } from './routes/write-ups/write-ups.controller';
     ProjectController,
     UserController,
     WriteUpController,
+    FilesController,
   ],
 })
 export class AppModule {}

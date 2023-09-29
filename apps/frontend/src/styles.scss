@@ -19,6 +19,7 @@ html {
   --bg: var(--base-012);
   --bg-highlighted: var(--base-000);
   --bg-muted: var(--base-025);
+  --button: var(--base-100);
   --line: var(--base-100);
   --line-highlighted: var(--base-200);
   --text: var(--base-1000);
@@ -148,6 +149,7 @@ html {
 
   @media (prefers-color-scheme: dark) {
     --bg-muted: var(--base-100);
+    --button: var(--base-200);
     --line: var(--base-200);
     --line-highlighted: var(--base-400);
 
