@@ -22,7 +22,7 @@ export class EventCollection {
   async getEvent(id: ObjectId): Promise<FullEventEntity | null> {
     let aggregateResult: AggregationCursor<FullEventEntity>;
     try {
-      const aggregateResult = this.collection.aggregate<FullEventEntity>([
+      aggregateResult = this.collection.aggregate<FullEventEntity>([
         { $match: { _id: id } },
         {
           $lookup: {
@@ -43,7 +43,7 @@ export class EventCollection {
       ]);
       return await aggregateResult.next();
     } finally {
-      await aggregateResult.close();
+      await aggregateResult?.close();
     }
   }
 

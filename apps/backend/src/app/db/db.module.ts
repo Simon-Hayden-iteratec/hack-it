@@ -1,6 +1,6 @@
 import { Global, Module } from '@nestjs/common';
 import { ConnectionService } from './connection/connection.service';
-import { EventCollection } from './event-collection/evemt-collection.service';
+import { EventCollection } from './event-collection/event-collection.service';
 import { ProjectCollection } from './project-collection/project-collection.service';
 import { UserCollection } from './user-collection/user-collection.service';
 

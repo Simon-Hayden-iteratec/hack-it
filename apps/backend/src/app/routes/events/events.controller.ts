@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ObjectId } from 'mongodb';
-import { EventCollection } from '../../db/event-collection/evemt-collection.service';
+import { EventCollection } from '../../db/event-collection/event-collection.service';
 import { EventEntity } from '../../db/event-collection/event.entity';
 import { UserCollection } from '../../db/user-collection/user-collection.service';
 
