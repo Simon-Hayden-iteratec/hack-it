@@ -23,6 +23,8 @@
 </article>
 
 <style lang="scss">
+	@use '../../mixins';
+
 	.event {
 		background-color: var(--bg);
 		border: solid 1px var(--line);
@@ -30,7 +32,7 @@
 		container-type: inline-size;
 		transition: var(--card-transition);
 
-		&:hover {
+		@include mixins.hover {
 			--bg: var(--bg-highlighted);
 			--line: var(--line-highlighted);
 		}
