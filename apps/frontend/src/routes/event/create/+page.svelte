@@ -1,4 +1,5 @@
 <script lang="ts">
+	import FilePicker from '$lib/components/FilePicker.svelte';
 	import type { EventHandler } from 'svelte/elements';
 
 	const onSubmit: EventHandler<SubmitEvent, HTMLFormElement> | undefined | null = (e: any) => {
@@ -7,6 +8,10 @@
 		// TODO
 		console.log('submit', formData);
 	};
+
+	function onFileChange(e: any) {
+		console.log(e);
+	}
 </script>
 
 <svelte:head>
@@ -42,6 +47,8 @@
 			<input name="end" type="date" required /></label
 		>
 	</fieldset>
+
+	<FilePicker label="Image" onchange={onFileChange}>Choose a file</FilePicker>
 
 	<input type="submit" value="Create Event" />
 </form>

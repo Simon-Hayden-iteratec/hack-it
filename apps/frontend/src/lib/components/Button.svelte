@@ -32,7 +32,7 @@
 		}
 
 		&--secondary {
-			--bg: var(--base-200);
+			--bg: var(--button);
 		}
 	}
 </style>
