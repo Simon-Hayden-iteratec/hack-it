@@ -31,6 +31,14 @@
 					{event.end.day}.{event.end.month}.{event.end.year}
 				</p>
 			</div>
+			<div class="page__meta-info">
+				<p class="page__meta-info-heading">Owners</p>
+				{#each event.owners as owner}
+					<p>
+						{owner.name ? owner.name + ' (' : ''}{owner.email}{owner.name ? ')' : ''}
+					</p>
+				{/each}
+			</div>
 		</div>
 	</div>
 	<SectionHeader title="Projects">
@@ -94,7 +102,7 @@
 			}
 
 			&__meta {
-				flex-grow: 1;
+				width: clamp(350px, 40%, 600px);
 			}
 		}
 	}
