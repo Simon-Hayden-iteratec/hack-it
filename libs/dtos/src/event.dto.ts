@@ -33,6 +33,10 @@ export class EventDto {
   @Type(() => DayDto)
   end: DayDto;
 
+  @IsString()
+  @IsOptional()
+  imgSrc: string | undefined;
+
   updatedAt: string;
   createdAt: string;
 

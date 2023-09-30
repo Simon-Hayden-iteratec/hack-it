@@ -10,7 +10,7 @@
 
 <div class="page">
 	<SectionHeader title="Events">
-		<Button href="event/create" type="primary">Create an Event</Button>
+		<Button href="event/create" kind="primary">Create an Event</Button>
 	</SectionHeader>
 	<div class="events">
 		{#each events as event}

@@ -11,7 +11,7 @@
 </script>
 
 <div class="page">
-	<Hero src="https://picsum.photos/900/500" />
+	<Hero src={event.imgSrc || 'https://picsum.photos/900/500'} />
 	<div class="page__header">
 		<div class="page__header-texts">
 			<h1>{event.title}</h1>
@@ -34,7 +34,7 @@
 		</div>
 	</div>
 	<SectionHeader title="Projects">
-		<Button type="primary" href="project/create">Create a Project</Button>
+		<Button kind="primary" href="project/create">Create a Project</Button>
 	</SectionHeader>
 	<div class="page__projects">
 		{#each projects as project}

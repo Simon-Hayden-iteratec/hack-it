@@ -44,7 +44,7 @@ export class EventController {
   }
 
   @Post()
-  async createEvent(@Body() dto: CreateEventDto) {
+  async createEvent(@Body() dto: CreateEventDto): Promise<EventDto> {
     const event = await this.eventCollection.createEvent(
       await this.userCollection.findOrCreateEmails(dto.owners),
       dto

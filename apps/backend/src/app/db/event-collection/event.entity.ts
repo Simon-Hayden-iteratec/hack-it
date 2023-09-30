@@ -5,9 +5,12 @@ import { UserEntity } from '../user-collection/user.entity';
 
 export abstract class EventEntity {
   _id: ObjectId;
+
   title: string;
   shortDesc: string | undefined;
   desc: string | undefined;
+  imgSrc: string | undefined;
+
   start: Date;
   end: Date;
 
@@ -38,6 +41,7 @@ export abstract class EventEntity {
       start: toDay(entity.start),
       createdAt: entity.createdAt.toISOString(),
       updatedAt: entity.createdAt.toISOString(),
+      imgSrc: entity.imgSrc
     };
   }
 }

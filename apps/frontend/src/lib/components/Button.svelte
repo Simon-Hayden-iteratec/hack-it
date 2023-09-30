@@ -1,14 +1,29 @@
+<script lang="ts" context="module">
+	export type ButtonKind = 'primary' | 'secondary';
+</script>
+
 <script lang="ts">
-	export let type: 'primary' | 'secondary' = 'secondary';
-	export let href: string;
+	import type { HTMLButtonAttributes } from 'svelte/elements';
+
+	export let kind: ButtonKind = 'secondary';
+	export let href: string | undefined = undefined;
+
+	interface $$Props extends HTMLButtonAttributes {
+		kind?: ButtonKind;
+		href?: string;
+	}
+
+	$: fixedClass = `button button--${kind} ${$$restProps.class ?? ''}`;
+
+	$: fixedProps = { ...$$restProps, class: fixedClass, type: $$restProps.type ?? 'button' };
 </script>
 
 {#if href}
-	<a class="button button--{type}" {href}>
+	<a class="{fixedProps.class}" {href} on:click>
 		<slot />
 	</a>
 {:else}
-	<button class="button button--{type}">
+	<button {...fixedProps} on:click>
 		<slot />
 	</button>
 {/if}

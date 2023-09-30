@@ -54,6 +54,7 @@ export class EventCollection {
     const entity: Omit<EventEntity, '_id'> = {
       title: dto.title,
       desc: dto.desc,
+      imgSrc: dto.imgSrc,
       shortDesc: dto.shortDesc,
       start: toDate(dto.start),
       end: toDate(dto.end),

@@ -17,6 +17,6 @@ export function toDay(date: Date): DayDto {
   return {
     year: date.getUTCFullYear(),
     month: date.getUTCMonth(),
-    day: date.getUTCDay(),
+    day: date.getUTCDate(),
   };
 }

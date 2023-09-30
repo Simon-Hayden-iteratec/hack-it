@@ -218,6 +218,17 @@ a {
     }
   }
 
+  fieldset.form-group {
+    flex-direction: column;
+    gap: 8px;
+
+    > legend {
+      visibility: visible;
+      height: auto;
+      margin-bottom: 8px;
+    }
+  }
+
   input[type='submit'] {
     background-color: var(--primary);
     border: none;

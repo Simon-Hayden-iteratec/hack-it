@@ -20,15 +20,18 @@
 		height: 48px;
 		justify-content: center;
 		padding: 16px;
+		max-width: 100%;
 
 		&__link {
 			height: 100%;
+			max-width: 100%;
 		}
 
 		&__picture {
 			display: inline-flex;
 			height: 100%;
 			justify-content: center;
+			max-width: 100%;
 		}
 	}
 </style>
